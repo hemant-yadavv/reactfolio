@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+// import './App.css';
 import Tours from './components/Tours';
 import data from './data'
 
