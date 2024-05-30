@@ -1,8 +1,16 @@
 import './App.css';
+import Testimonial from './components/Testimonials';
+import reviews from "./data";
 
 function App() {
   return (
-    <div>Testimonial</div>
+    <div>
+      <div>
+        <h1>Our Testimonials</h1>
+        <div></div>
+        <Testimonial reviews={reviews} />
+      </div>
+    </div>
   );
 }
 
