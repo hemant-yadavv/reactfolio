@@ -1,5 +1,3 @@
-//GameBoard.js 
-
 import React from "react"; 
 import Data from "./data"; 
 import Card from "./Card"; 
