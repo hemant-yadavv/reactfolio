@@ -88,6 +88,7 @@ function App() {
         <MainContainer>
           <ChatContainer>
             <MessageList
+            scrollBehavior='smooth'
             typingIndicator={typing ? <TypingIndicator content="Jarvis is typing..."/> : null}
             >
               {messages.map((message,i)=>{
