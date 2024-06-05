@@ -5,13 +5,13 @@ import './App.css'
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, MessageInput, TypingIndicator, Message } from '@chatscope/chat-ui-kit-react'
 
-const API_KEY = "sk-proj-QkE0E2Ia397PuimBz9vdT3BlbkFJLsFOr4zyNf5Ngc7sqYm9"
+const API_KEY = "sk-proj-jxnN9fZex1Obp3ej5wNET3BlbkFJfeugdXofEWQfIpMGgfIz";
 
 function App() {
   const [typing,setTyping] = useState(false)
   const [messages, setMessages] = useState([
     {
-      message: "Hello I am Jarvis !",
+      message: "Hello I am Jarvis! How can I help you ??",
       sender: "Jarvis",
       direction: "incoming",
     }
@@ -48,7 +48,7 @@ function App() {
 
     const systemMessage = {
       role: "system",
-      content: "Explain all concepts like I am 10 years old."
+      content: "Explain all concepts like I new to that concepts."
     }
 
     const apiRequestBody = {
@@ -69,14 +69,24 @@ function App() {
     }).then((data)=>{
       return data.json();
     }).then((data)=>{
-      console.log(data);
       // console.log(data.choices[0].message.content);
-      setMessages(
-        [...chatMessages,{
-          message: data.choices[0].message.content,
-          sender: "Jarvis",
-        }]
-      )
+      try {
+        setMessages(
+          [...chatMessages,{
+            message: data.choices[0].message.content,
+            sender: "Jarvis",
+            direction: "incoming",
+          }]
+        )
+      } catch (error) {
+        setMessages(
+          [...chatMessages,{
+            message: data.error.message,
+            sender: "Jarvis",
+            direction: "incoming",
+          }]
+        )
+      }
       setTyping(false);
     })
 
