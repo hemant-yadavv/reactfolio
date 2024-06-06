@@ -1,4 +1,4 @@
-import Products from "../../Components/Products";
+import Products from "../Components/Products";
 import "./globals.css";
 
 export default function Home() {
