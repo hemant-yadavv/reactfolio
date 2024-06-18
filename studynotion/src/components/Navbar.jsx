@@ -5,7 +5,7 @@ import toast from 'react-hot-toast'
 
 const Navbar = (props) => {
   let isLoggedIn = props.isLoggedIn;
-  let setLoggedIn = props.setLoggedIn;
+  let setIsLoggedIn = props.setIsLoggedIn;
 
   return (
     <div className='flex justify-evenly'>
@@ -30,11 +30,7 @@ const Navbar = (props) => {
       <div className="flex ml-5 mr-3 gap-3">
         { !isLoggedIn &&
           <NavLink to="/login">
-            <button onClick={()=>{
-              setLoggedIn(true);
-              toast.success('Logged in!');
-            }}
-            >Login</button>
+            <button >Login</button>
           </NavLink>
         }
         { !isLoggedIn &&
@@ -45,7 +41,7 @@ const Navbar = (props) => {
         { isLoggedIn &&
           <NavLink to="/">
             <button onClick={()=>{
-              setLoggedIn(false);
+              setIsLoggedIn(false);
               toast.success('Logged Out!');
             }}
             >Log Out</button>
