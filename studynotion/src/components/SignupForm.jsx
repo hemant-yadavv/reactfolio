@@ -38,6 +38,13 @@ const SignupForm = ({ setIsLoggedIn }) => {
     setIsLoggedIn(true);
     toast.success("Account Created");
     navigate("/dashboard");
+
+    const finalData = {
+      ...formData,
+      accountType
+    }
+
+    console.log(finalData)
   }
 
   return (
